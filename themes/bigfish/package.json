@@ -1,0 +1,19 @@
+{
+  "name": "hexo-theme-bigfish",
+  "version": "1.0",
+  "description": "A simple blog theme for Hexo.",
+  "keywords": [
+    "hexo",
+    "simple",
+    "theme"
+  ],
+  "author": {
+    "name": "Zeffon",
+    "email": "ZeffonWu@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/ZeffonWu/hexo-theme-bigfish.git",
+    "type": "git"
+  }
+}
