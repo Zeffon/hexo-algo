@@ -189,9 +189,5 @@ githubEmojis:
   styles:
   localEmojis:
 
-# 开启音乐
-aplayer:
-  meting: true
-
 # 代码块
 highlight_theme: normal

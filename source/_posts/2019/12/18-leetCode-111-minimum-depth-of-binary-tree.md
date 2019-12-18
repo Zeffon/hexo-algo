@@ -1,11 +1,10 @@
 ---
-layout: post
 title: 111.二叉树的最小深度
+date: 2019-12-18 09:23:20
 categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: 给定一个二叉树，找出其最小深度。
 abbrlink: 2db490e1
 ---
 
@@ -51,7 +50,19 @@ abbrlink: 2db490e1
  */
 class Solution {
     public int minDepth(TreeNode root) {
-        
+        if(root == null) {
+            return 0;
+        }
+
+        if(root.left == null && root.right != null) {
+            return 1 + minDepth(root.right);
+        }
+
+        if(root.right == null && root.left != null) {
+            return 1 + minDepth(root.left);
+        }
+
+        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
     }
 }
 ```
