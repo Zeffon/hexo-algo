@@ -42,7 +42,27 @@ abbrlink: 724fee56
  */
 class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
-        
+        if(root == null) {
+            return 0;
+        }
+        return dfs(root, false);
+    }
+
+    public int dfs(TreeNode node, boolean isLeft) {
+        if(node.left == null && node.right == null) {
+            if(isLeft) {
+                return node.val;
+            }
+            return 0;
+        }
+        int res = 0;
+        if(node.left != null) {
+            res += dfs(node.left, true);
+        }
+        if(node.right != null) {
+            res += dfs(node.right, false);
+        }
+        return res;
     }
 }
 ```
