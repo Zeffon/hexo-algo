@@ -5,7 +5,6 @@ categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: 给定一个二叉树，返回所有从根节点到叶子节点的路径。
 abbrlink: 6110f261
 ---
 
@@ -59,7 +58,7 @@ class Solution {
         }
 
         List<String> leftPaths = binaryTreePaths(root.left);
-        for(String s: leftPaths){
+        for(String s : leftPaths){
             StringBuilder sb = new StringBuilder(Integer.toString(root.val));
             sb.append("->");
             sb.append(s);
@@ -67,15 +66,13 @@ class Solution {
         }
 
         List<String> rightPaths = binaryTreePaths(root.right);
-        for(String s: rightPaths) {
+        for(String s : rightPaths) {
             StringBuilder sb = new StringBuilder(Integer.toString(root.val));
             sb.append("->");
             sb.append(s);
             res.add(sb.toString());
         }
-
         return res;
-
     }
 }
 ```
