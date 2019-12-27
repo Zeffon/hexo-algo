@@ -35,7 +35,6 @@ abbrlink: 1504ba16
 ]
 ```
 
-
 ### 解题思路
 
 
@@ -53,12 +52,28 @@ abbrlink: 1504ba16
  */
 class Solution {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) {
+            return res;
+        }
+        dfs(root, sum, res, new ArrayList<Integer>());
+        return res;
+    }
+
+    private void dfs(TreeNode root, int sum, List<List<Integer>> res, ArrayList<Integer> tmp) {
+        if (root == null) {
+            return;
+        }
+        tmp.add(root.val);
+        if (root.left == null && root.right == null && sum - root.val == 0) {
+            res.add(new ArrayList<>(tmp));
+        }
+        dfs(root.left, sum - root.val, res, tmp);
+        dfs(root.right, sum - root.val, res, tmp);
+        tmp.remove(tmp.size() - 1);
     }
 }
 ```
-
-
 
 ### 题目来源
 LeetCode-[113.路径总和 II](https://leetcode-cn.com/problems/path-sum-ii/)
