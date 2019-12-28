@@ -5,7 +5,6 @@ categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: "给定一个二叉树，它的每个结点都存放一个\_0-9\_的数字，每条从根到叶子节点的路径都代表一个数字。"
 abbrlink: ab15f1b5
 ---
 
@@ -14,7 +13,7 @@ abbrlink: ab15f1b5
 
 例如，从根到叶子节点路径 1->2->3 代表数字 123。
 计算从根到叶子节点生成的所有数字之和。
-
+<!-- more -->
 - **`说明:`**
 叶子节点是指没有子节点的节点。
 
@@ -65,8 +64,24 @@ abbrlink: ab15f1b5
  * }
  */
 class Solution {
+    private int sumNum = 0;
     public int sumNumbers(TreeNode root) {
-        
+        if(root == null) {
+            return 0;
+        }
+        dfs(root, 0);
+        return sumNum;
+    }
+    private void dfs(TreeNode root, int sum) {
+        if(root.left == null && root.right == null) {
+            sumNum += sum + root.val; 
+        }
+        if(root.left != null) {
+            dfs(root.left, sum * 10 + root.val * 10);
+        }
+        if(root.right != null) {
+            dfs(root.right, sum * 10 + root.val * 10);
+        }
     }
 }
 ```
