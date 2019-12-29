@@ -5,7 +5,6 @@ categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: 给定一个二叉树，它的每个结点都存放着一个整数值。
 abbrlink: 7d55a6ba
 ---
 
@@ -16,6 +15,7 @@ abbrlink: 7d55a6ba
 
 二叉树不超过1000个节点，且节点数值范围是 [-1000000,1000000] 的整数。
 
+<!-- more -->
 ### 题目示例
 - **`示例:`**
 ```
