@@ -5,7 +5,6 @@ categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
 abbrlink: d394199d
 ---
 
@@ -16,7 +15,7 @@ abbrlink: d394199d
 - 节点的左子树只包含小于当前节点的数。
 - 节点的右子树只包含大于当前节点的数。
 - 所有左子树和右子树自身必须也是二叉搜索树。
-
+<!-- more -->
 
 ### 题目示例
 - **`示例 1:`**
@@ -58,18 +57,25 @@ abbrlink: d394199d
  * }
  */
 class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(p == null || q == null)
-            throw new IllegalArgumentException("p or q can not be null.");
-
-        if(root == null)
-            return null;
-
-        if(p.val < root.val && q.val < root.val)
-            return lowestCommonAncestor(root.left, p, q);
-        if(p.val > root.val && q.val > root.val)
-            return lowestCommonAncestor(root.right, p, q);
-        return root;
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+    
+    private boolean isValidBST(TreeNode node, int min, int max){
+        if(node == null) {
+            return true;
+        }
+        if(node.val < min || node.val > max) {
+            return false;
+        }
+        if(node.left != null && node.left.val >= node.val) {
+            return false;
+        }
+        if(node.right != null && node.right.val <= node.val) {
+            return false;
+        }
+        return isValidBST(node.left, min, node.val - 1) &&
+                isValidBST(node.right, node.val + 1, max);
     }
 }
 ```
