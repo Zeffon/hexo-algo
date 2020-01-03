@@ -5,12 +5,14 @@ categories:
   - LeetCode
 tags:
   - binary Search Tree
-summary: 给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。
 abbrlink: e7a72fb5
+date: 2020-01-03 13:11:29
 ---
 
 ### 题目要求
 给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。
+
+<!-- more -->
 
 - **`说明:`**
 你可以假设 k 总是有效的，1 ≤ k ≤ 二叉搜索树元素个数。
@@ -46,8 +48,7 @@ abbrlink: e7a72fb5
 
 
 ### 解题思路
-- 利用二叉树的性质：左节点小于父节点、右节点大于父节点
-- 递归往某一节点的左右节点进行遍历
+递归查找k元素，借助于index
 
 ### 解题代码
 ```java
@@ -61,19 +62,30 @@ abbrlink: e7a72fb5
  * }
  */
 class Solution {
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(p == null || q == null)
-            throw new IllegalArgumentException("p or q can not be null.");
+    // 标记k的计数器，当k == index 则表示找到该元素
+    private int index;
 
-        if(root == null)
-            return null;
-
-        if(p.val < root.val && q.val < root.val)
-            return lowestCommonAncestor(root.left, p, q);
-        if(p.val > root.val && q.val > root.val)
-            return lowestCommonAncestor(root.right, p, q);
-        return root;
+    public int kthSmallest(TreeNode root, int k) {
+        index = 0;
+        return kthSmallestNode(root, k).val;
     }
+
+    // 寻找到k对应的节点
+    private TreeNode kthSmallestNode(TreeNode node, int k) {
+        if(node == null) {
+            return null;
+        }
+        TreeNode res = kthSmallestNode(node.left, k);
+        if(res != null) {
+            return res;
+        } 
+
+        index++;
+        if(index == k) {
+            return node;
+        }
+        return kthSmallestNode(node.right, k);
+    } 
 }
 ```
 
