@@ -5,7 +5,6 @@ categories:
   - LeetCode
 tags:
   - recursion
-summary: 给定一个包含2到9（含2-9）数字的字符串，请返回该数字可以表示的所有可能的字母组合。
 abbrlink: 8ffbed9b
 ---
 
@@ -14,6 +13,7 @@ abbrlink: 8ffbed9b
 
 下面给出了数字到字母的映射（就像在电话按钮上一样）。请注意，1不会映射到任何字母。
 
+<!-- more -->
 
 - **`注意：`**
 尽管以上答案按字典顺序排列，但您的答案可以按您想要的任何顺序排列。
@@ -62,10 +62,10 @@ class Solution {
     // 寻找和digits[index]匹配的字母, 获得digits[0...index]翻译得到的解
     private void findCombination(String digits, int index, String s){
 
-        System.out.println(index + " : " + s);
+        // System.out.println(index + " : " + s);
         if(index == digits.length()) {
             res.add(s);
-            System.out.println("get " + s + " , return");
+            // System.out.println("get " + s + " , return");
             return;
         }
 
@@ -75,7 +75,7 @@ class Solution {
                 c.compareTo('1') != 0;
         String letters = letterMap[c - '0'];
         for(int i = 0; i < letters.length(); i++) {
-            System.out.println("digits[" + index + "] = " + c + " , use " + letters.charAt(i));
+            // System.out.println("digits[" + index + "] = " + c + " , use " + letters.charAt(i));
             findCombination(digits, index+1, s + letters.charAt(i));
         }
         return;
