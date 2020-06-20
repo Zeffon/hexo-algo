@@ -20,7 +20,7 @@ menu:
     url: /tags
   book:
     text: 主 博
-    url: https://zeffon.design/
+    url: https://www.zeffon.cn/
     target: _blank
 
 # 图标菜单
@@ -32,7 +32,7 @@ menu2:
     target: _blank
   github:
     text: Github
-    url: https://github.com/ZeffonWu
+    url: https://github.com/Zeffon
     target: _blank
 
 # 你的头像url
@@ -134,7 +134,7 @@ gitment: false
 
 gitalk: 
   enable: true
-  owner: ZeffonWu
+  owner: Zeffon
   repo: algo
   client_id: 3ab4083ebeb4b2d33759
   client_secret: dd3ce21927ab8ed51f84cc6c49e5bfada7bbaae2

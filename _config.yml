@@ -14,7 +14,7 @@ email: ZeffonWu@gmail.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://algo.zeffon.design
+url: https://algo.zeffon.cn
 root: /
 permalink: posts/:abbrlink.html
 
@@ -127,5 +127,5 @@ theme: bigfish
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:ZeffonWu/algo.git
+  repo: git@github.com:Zeffon/algo.git
   branch: master
